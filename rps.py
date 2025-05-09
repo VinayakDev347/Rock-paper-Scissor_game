@@ -2,6 +2,8 @@ import sys
 import random
 from enum import Enum
 
+game_count = 0
+
 
 def play_game():
 
@@ -13,7 +15,7 @@ def play_game():
     playerchoice=input("Enter your choice...\n----------------------------\n1 for  Rock\n2 for Paper\n3 for Scissor\n---------------------------- ")
 
     if playerchoice not in ["1","2","3"]:
-        print("You must enter only 1, 2, 3. Read the Instruction clearly!!!")
+        print("\nYou must enter only 1, 2, 3. Read the Instruction clearly!!!\n")
         return play_game()
     
     player = int(playerchoice)
@@ -26,16 +28,25 @@ def play_game():
     print("\nYou choose "+ str(RPS(player)).replace('RPS.',' ').title() + ".")
     print("Computer choose "+ str(RPS(computer)).replace('RPS',' ').title()+".\n")
 
-    if player == 1  and computer == 3:
-        print("\nYou Win")
-    elif player == 2 and computer == 1:
-        print("\nYou Win")
-    elif player == 3 and computer == 2:
-        print("\nYou Win")
-    elif player == computer:
-        print("\nIts Tiee Game!!!")
-    else:
-        print("\nComputer win")
+    def decide_winner(player,computer):
+        if player == 1  and computer == 3:
+            return "You Win"
+        elif player == 2 and computer == 1:
+            return "You Win"
+        elif player == 3 and computer == 2:
+            return "You Win"
+        elif player == computer:
+            return "Its Tiee Game!!!"
+        else:
+            return "Computer win"
+    
+    game_result = decide_winner(player,computer)
+
+    print(game_result)
+
+    global game_count
+    game_count += 1
+    print("\nGame count: " + str(game_count))
 
     print("\nPlay again?")
     while True:
