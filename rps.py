@@ -30,8 +30,8 @@ def rock_papper_scissor():
         computer = int(computerchoice)
 
 
-        print("\nYou choose "+ str(RPS(player)).replace('RPS.',' ').title() + ".")
-        print("Computer choose "+ str(RPS(computer)).replace('RPS.',' ').title()+".\n")
+        print(f"\nYou choose { str(RPS(player)).replace('RPS.',' ').title()}.")
+        print(f"Computer choose {str(RPS(computer)).replace('RPS.',' ').title()}.\n")
 
         def decide_winner(player,computer):
             nonlocal player_wins
@@ -59,9 +59,9 @@ def rock_papper_scissor():
         nonlocal game_count
         game_count += 1
 
-        print("\nGame count: " + str(game_count))
-        print("\nPlayer Wins: " + str(player_wins))
-        print("\nComputer Wins: " + str(computer_wins))
+        print(f"\nGame count:  { str(game_count)}")
+        print(f"\nPlayer Wins: { str(player_wins)}")
+        print(f"\nComputer Wins: { str(computer_wins)}")
 
         print("\nPlay again?")
         while True:
